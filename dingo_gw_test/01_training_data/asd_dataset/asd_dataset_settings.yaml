@@ -1,0 +1,13 @@
+dataset_settings:
+  T: 2.0
+  detectors:
+  - H1
+  - L1
+  f_s: 4096
+  num_psds_max: 1
+  observing_run: O1
+  time_gap: 0
+  time_psd: 1024
+  window:
+    roll_off: 0.4
+    type: tukey

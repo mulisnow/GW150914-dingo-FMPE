@@ -1,0 +1,66 @@
+data:
+  detectors:
+  - H1
+  - L1
+  extrinsic_prior:
+    dec: bilby.core.prior.analytical.DeltaFunction(-1.2616009712219238)
+    geocent_time: bilby.core.prior.analytical.DeltaFunction(0.011423417367041111)
+    luminosity_distance: bilby.core.prior.analytical.DeltaFunction(488.2327880859375)
+    psi: bilby.core.prior.analytical.DeltaFunction(1.2124483585357666)
+    ra: bilby.core.prior.analytical.DeltaFunction(1.4557750225067139)
+  inference_parameters:
+  - chirp_mass
+  - mass_ratio
+  ref_time: 1126259462.391
+  train_fraction: 0.95
+  waveform_dataset_path: 01_training_data/waveform_dataset/waveform_dataset.hdf5
+  window:
+    T: 2.0
+    f_s: 4096
+    roll_off: 0.4
+    type: tukey
+local:
+  checkpoint_epochs: 15
+  device: cpu
+  num_workers: 0
+  runtime_limits:
+    max_epochs_per_run: 30
+    max_time_per_run: 36000
+model:
+  embedding_kwargs:
+    activation: elu
+    batch_norm: true
+    dropout: 0.0
+    hidden_dims:
+    - 1024
+    - 512
+    - 256
+    - 64
+    output_dim: 128
+    svd:
+      num_training_samples: 1000
+      num_validation_samples: 100
+      size: 50
+  posterior_kwargs:
+    base_transform_kwargs:
+      activation: elu
+      base_transform_type: rq-coupling
+      batch_norm: true
+      dropout_probability: 0.0
+      hidden_dim: 1024
+      num_bins: 8
+      num_transform_blocks: 20
+    num_flow_steps: 5
+  posterior_model_type: normalizing_flow
+training:
+  stage_0:
+    asd_dataset_path: 01_training_data/asd_dataset/asd_GW150914.hdf5
+    batch_size: 64
+    epochs: 15
+    freeze_rb_layer: true
+    optimizer:
+      lr: 0.0001
+      type: adam
+    scheduler:
+      T_max: 15
+      type: cosine

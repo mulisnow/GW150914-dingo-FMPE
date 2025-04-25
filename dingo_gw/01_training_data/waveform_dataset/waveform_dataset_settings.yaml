@@ -1,0 +1,25 @@
+compression: None
+domain:
+  delta_f: 0.5
+  f_max: 256.0
+  f_min: 20.0
+  type: FrequencyDomain
+intrinsic_prior:
+  a_1: 0.925635814666748
+  a_2: 0.5538952350616455
+  chirp_mass: bilby.gw.prior.UniformInComponentsChirpMass(minimum=15.0, maximum=50.0)
+  geocent_time: 0.0
+  luminosity_distance: 100.0
+  mass_1: bilby.core.prior.Constraint(minimum=20.0, maximum=40.0)
+  mass_2: bilby.core.prior.Constraint(minimum=20.0, maximum=40.0)
+  mass_ratio: bilby.gw.prior.UniformInComponentsMassRatio(minimum=0.125, maximum=1.0)
+  phase: 0.9604566579018894
+  phi_jl: 5.561878204345703
+  theta_jn: 2.624497413635254
+  tilt_1: 2.0111560821533203
+  tilt_2: 1.0743615627288818
+num_samples: 10000
+waveform_generator:
+  approximant: IMRPhenomPv2
+  f_ref: 20.0
+  spin_conversion_phase: 0.0
