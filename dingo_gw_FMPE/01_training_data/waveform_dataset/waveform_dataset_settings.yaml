@@ -18,7 +18,7 @@ intrinsic_prior:
   theta_jn: 2.624497413635254
   tilt_1: 2.0111560821533203
   tilt_2: 1.0743615627288818
-num_samples: 50000
+num_samples: 500000
 waveform_generator:
   approximant: IMRPhenomPv2
   f_ref: 20.0
