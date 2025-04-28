@@ -5,7 +5,7 @@ domain:
   type: FrequencyDomain
   f_min: 20.0
   f_max: 256.0
-  delta_f: 0.5 # Expressions like 1.0/8.0 would require eval and are not supported
+  delta_f: 0.25 # Expressions like 1.0/8.0 would require eval and are not supported
 
 waveform_generator:
   approximant: IMRPhenomPv2
@@ -31,7 +31,7 @@ intrinsic_prior:
   geocent_time: 0.0 # s
 
 # Dataset size
-num_samples: 50_0000
+num_samples: 50_000
 
 compression: None
 """

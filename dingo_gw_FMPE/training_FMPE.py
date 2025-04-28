@@ -30,20 +30,24 @@ model:
   posterior_kwargs:
     activation: gelu
     batch_norm: True
+    context_with_glu: True
     dropout: 0.0
-    hidden_dims: [512, 512, 256] 
+    hidden_dims:  [
+        1024, 1024, 1024, 1024, 1024, 1024,
+        512, 512, 512, 512, 512, 512, 512, 512
+    ]
     sigma_min: 0.001
     theta_embedding_kwargs:
       embedding_net:
         activation: gelu
-        hidden_dims: [512, 512, 256] 
+        hidden_dims: [16, 32, 64, 128, 256] 
         output_dim: 256
         type: DenseResidualNet
       encoding:
         encode_all: False
         frequencies: 0
     theta_with_glu: True
-    time_prior_exponent: 0.0
+    time_prior_exponent: 1
     type: DenseResidualNet      
   # kwargs for embedding net
   embedding_kwargs:
@@ -53,8 +57,8 @@ model:
     dropout: 0.0
     batch_norm: True
     svd:
-      num_training_samples: 1000
-      num_validation_samples: 100
+      num_training_samples: 50000
+      num_validation_samples: 50000
       size: 50
 
 # The first stage (and only) stage of training.
@@ -89,7 +93,7 @@ local:
   runtime_limits:
     max_time_per_run: 86400 
     max_epochs_per_run: 100
-  checkpoint_epochs: 15
+  checkpoint_epochs: 50
 """
 train_settings = yaml.safe_load(train_settings)
 with open('02_training_FMPE/train_settings_fmpe.yaml', 'w') as outfile:
