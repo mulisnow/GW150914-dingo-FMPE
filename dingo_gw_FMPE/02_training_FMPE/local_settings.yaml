@@ -1,0 +1,6 @@
+checkpoint_epochs: 30
+device: cpu
+num_workers: 0
+runtime_limits:
+  max_epochs_per_run: 100
+  max_time_per_run: 86400

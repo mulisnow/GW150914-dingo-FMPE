@@ -15,7 +15,7 @@ simple-submission = False
 
 model = 02_training_FMPE/model_latest.pt
 device = cpu
-num-samples = 5000
+num-samples = 50000
 batch-size = 5000
 recover-log-prob = true
 importance-sampling-settings = {}

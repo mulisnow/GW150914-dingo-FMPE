@@ -20,7 +20,7 @@ data:
     roll_off: 0.4
     type: tukey
 local:
-  checkpoint_epochs: 50
+  checkpoint_epochs: 30
   device: cpu
   num_workers: 0
   runtime_limits:
@@ -36,15 +36,15 @@ model:
     - 512
     - 256
     - 64
-    output_dim: 64
+    output_dim: 128
     svd:
-      num_training_samples: 50000
-      num_validation_samples: 50000
+      num_training_samples: 49000
+      num_validation_samples: 1000
       size: 50
   posterior_kwargs:
     activation: gelu
     batch_norm: true
-    context_with_glu: true
+    context_with_glu: false
     dropout: 0.0
     hidden_dims:
     - 1024
@@ -77,14 +77,14 @@ model:
         encode_all: false
         frequencies: 0
     theta_with_glu: true
-    time_prior_exponent: 1
+    time_prior_exponent: 0.0
     type: DenseResidualNet
   posterior_model_type: flow_matching
 training:
   stage_0:
     asd_dataset_path: 01_training_data/asd_dataset/asd_GW150914.hdf5
     batch_size: 32
-    epochs: 15
+    epochs: 30
     freeze_rb_layer: true
     optimizer:
       lr: 3.0e-05
