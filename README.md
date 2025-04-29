@@ -1,5 +1,6 @@
 反演参数后验分布的 corner 图像:
 ![](https://github.com/mulisnow/GW150914-dingo-FMPE/blob/main/dingo_gw_FMPE/03_inference/outdir_GW150914/result/corner.png)
+
 key parameter:  
   1.num_samples: 50000  
   2.posterior_model_type: flow_matching  
